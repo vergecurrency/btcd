@@ -73,10 +73,10 @@ var genesisBlock = wire.MsgBlock{
 	Header: wire.BlockHeader{
 		Version:    1,
 		PrevBlock:  chainhash.Hash{},         // 0000000000000000000000000000000000000000000000000000000000000000
-		MerkleRoot: genesisMerkleRoot,        // 4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b
-		Timestamp:  time.Unix(0x495fab29, 0), // 2009-01-03 18:15:05 +0000 UTC
+		MerkleRoot: genesisMerkleRoot,        // 1c83275d9151711eec3aec37d829837cc3c2730b2bdfd00ec5e8e5dce675fd00
+		Timestamp:  time.Unix(0x5436D274, 0), // (1412878964) 10/09/2014 @ 6:22pm (UTC)
 		Bits:       0x1e0fffff,               // 486604799 [00000000ffff0000000000000000000000000000000000000000000000000000]
-		Nonce:      0x7c2bac1d,               // 1473191
+		Nonce:      0x167AA7,               // 1473191
 	},
 	Transactions: []*wire.MsgTx{&genesisCoinbaseTx},
 }
