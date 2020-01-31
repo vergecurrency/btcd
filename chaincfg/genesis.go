@@ -7,8 +7,8 @@ package chaincfg
 import (
 	"time"
 
-	"github.com/vergecurrency/btcd/chaincfg/chainhash"
-	"github.com/vergecurrency/btcd/wire"
+	"github.com/btcsuite/btcd/chaincfg/chainhash"
+	"github.com/btcsuite/btcd/wire"
 )
 
 // genesisCoinbaseTx is the coinbase transaction for the genesis blocks for
@@ -22,31 +22,22 @@ var genesisCoinbaseTx = wire.MsgTx{
 				Index: 0xffffffff,
 			},
 			SignatureScript: []byte{
-				0x04, 0xff, 0xff, 0x00, 0x1d, 0x01, 0x04, 0x13, /* | | */
-				0x4e, 0x61, 0x6d, 0x65, 0x3a, 0x20, 0x44, 0x6f, /* | | */
-				0x67, 0x65, 0x63, 0x6f, 0x69, 0x6e, 0x20, 0x44, /* | | */
-				0x61, 0x72, 0x6b,  /* | | */
+				0x04, 0xff, 0xff, 0x00, 0x1d, 0x01, 0x04, 0x13,
+				0x4e, 0x61, 0x6d, 0x65, 0x3a, 0x20, 0x44, 0x6f,
+				0x67, 0x65, 0x63, 0x6f, 0x69, 0x6e, 0x20, 0x44,
+				0x61, 0x72, 0x6b,
 			},
 			Sequence: 0xffffffff,
 		},
 	},
 	TxOut: []*wire.TxOut{
 		{
-			Value: 0x12a05f200,
-			PkScript: []byte{
-				0x41, 0x04, 0x67, 0x8a, 0xfd, 0xb0, 0xfe, 0x55, /* |A.g....U| */
-				0x48, 0x27, 0x19, 0x67, 0xf1, 0xa6, 0x71, 0x30, /* |H'.g..q0| */
-				0xb7, 0x10, 0x5c, 0xd6, 0xa8, 0x28, 0xe0, 0x39, /* |..\..(.9| */
-				0x09, 0xa6, 0x79, 0x62, 0xe0, 0xea, 0x1f, 0x61, /* |..yb...a| */
-				0xde, 0xb6, 0x49, 0xf6, 0xbc, 0x3f, 0x4c, 0xef, /* |..I..?L.| */
-				0x38, 0xc4, 0xf3, 0x55, 0x04, 0xe5, 0x1e, 0xc1, /* |8..U....| */
-				0x12, 0xde, 0x5c, 0x38, 0x4d, 0xf7, 0xba, 0x0b, /* |..\8M...| */
-				0x8d, 0x57, 0x8a, 0x4c, 0x70, 0x2b, 0x6b, 0xf1, /* |.W.Lp+k.| */
-				0x1d, 0x5f, 0xac, /* |._.| */
-			},
+			Value:    0x0,
+			PkScript: []byte{},
 		},
 	},
 	LockTime: 0,
+	Time:     1412878964,
 }
 
 // genesisHash is the hash of the first block in the block chain for the main
@@ -61,10 +52,10 @@ var genesisHash = chainhash.Hash([chainhash.HashSize]byte{ // Make go vet happy.
 // genesisMerkleRoot is the hash of the first transaction in the genesis block
 // for the main network.
 var genesisMerkleRoot = chainhash.Hash([chainhash.HashSize]byte{ // Make go vet happy.
-	0x3b, 0xa3, 0xed, 0xfd, 0x7a, 0x7b, 0x12, 0xb2,
-	0x7a, 0xc7, 0x2c, 0x3e, 0x67, 0x76, 0x8f, 0x61,
-	0x7f, 0xc8, 0x1b, 0xc3, 0x88, 0x8a, 0x51, 0x32,
-	0x3a, 0x9f, 0xb8, 0xaa, 0x4b, 0x1e, 0x5e, 0x4a,
+	0x00, 0xfd, 0x75, 0xe6, 0xdc, 0xe5, 0xe8, 0xc5,
+	0x0e, 0xd0, 0xdf, 0x2b, 0x0b, 0x73, 0xc2, 0xc3,
+	0x7c, 0x83, 0x29, 0xd8, 0x37, 0xec, 0x3a, 0xec,
+	0x1e, 0x71, 0x51, 0x91, 0x5d, 0x27, 0x83, 0x1c,
 })
 
 // genesisBlock defines the genesis block of the block chain which serves as the
@@ -73,8 +64,8 @@ var genesisBlock = wire.MsgBlock{
 	Header: wire.BlockHeader{
 		Version:    1,
 		PrevBlock:  chainhash.Hash{},         // 0000000000000000000000000000000000000000000000000000000000000000
-		MerkleRoot: genesisMerkleRoot,        // 1c83275d9151711eec3aec37d829837cc3c2730b2bdfd00ec5e8e5dce675fd00
-		Timestamp:  time.Unix(0x5436D274, 0), // (1412878964) 10/09/2014 @ 6:22pm (UTC)
+		MerkleRoot: genesisMerkleRoot,        // 4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b
+		Timestamp:  time.Unix(0x5436D274, 0), // October 9, 2014 6:22:44 PM
 		Bits:       0x1e0fffff,               // 486604799 [00000000ffff0000000000000000000000000000000000000000000000000000]
 		Nonce:      0x167AA7,                 // 1473191
 	},
@@ -104,7 +95,7 @@ var regTestGenesisBlock = wire.MsgBlock{
 		MerkleRoot: regTestGenesisMerkleRoot, // 768cc22f70bbcc4de26f83aca1b4ea2a7e25f0d100497ba47c7ff2d9b696414c
 		Timestamp:  time.Unix(1462058066, 0), // 04/30/2016 @ 11:14pm (UTC)
 		Bits:       0x1e0fffff,               // 545259519 [7fffff0000000000000000000000000000000000000000000000000000000000]
-		Nonce:      2,						  // 2
+		Nonce:      2,                        // 2
 	},
 	Transactions: []*wire.MsgTx{&genesisCoinbaseTx},
 }
@@ -132,7 +123,7 @@ var testNet3GenesisBlock = wire.MsgBlock{
 		MerkleRoot: testNet3GenesisMerkleRoot, // 768cc22f70bbcc4de26f83aca1b4ea2a7e25f0d100497ba47c7ff2d9b696414c
 		Timestamp:  time.Unix(1462058066, 0),  // 04/30/2016 @ 11:14pm (UTC)
 		Bits:       0x1e0fffff,                // 486604799 [00000000ffff0000000000000000000000000000000000000000000000000000]
-		Nonce:      2,                		   // 2
+		Nonce:      2,                         // 2
 	},
 	Transactions: []*wire.MsgTx{&genesisCoinbaseTx},
 }

@@ -15,7 +15,7 @@ require (
 	github.com/kkdai/bstream v0.0.0-20161212061736-f391b8402d23 // indirect
 	github.com/onsi/ginkgo v1.7.0 // indirect
 	github.com/onsi/gomega v1.4.3 // indirect
-	golang.org/x/crypto v0.0.0-20170930174604-9419663f5a44
+	golang.org/x/crypto v0.0.0-20200128174031-69ecbb4d6d5d
 )
 
 go 1.12

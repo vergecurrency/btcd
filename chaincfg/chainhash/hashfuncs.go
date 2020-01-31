@@ -5,7 +5,11 @@
 
 package chainhash
 
-import "crypto/sha256"
+import (
+	"crypto/sha256"
+
+	"golang.org/x/crypto/scrypt"
+)
 
 // HashB calculates hash(b) and returns the resulting bytes.
 func HashB(b []byte) []byte {
@@ -30,4 +34,15 @@ func DoubleHashB(b []byte) []byte {
 func DoubleHashH(b []byte) Hash {
 	first := sha256.Sum256(b)
 	return Hash(sha256.Sum256(first[:]))
+}
+
+// ScryptHash calculates scryptHash(b) and returns the resulting bytes as a Hash
+func ScryptHash(b []byte) Hash {
+	scryptHash, _ := scrypt.Key(b, b, 1024, 1, 1, 32)
+	var hash [32]byte
+
+	for i := 0; i < len(hash); i++ {
+		hash[i] = scryptHash[i]
+	}
+	return Hash(hash)
 }

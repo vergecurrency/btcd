@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/vergecurrency/btcd/chaincfg/chainhash"
-	"github.com/vergecurrency/btcd/wire"
+	"github.com/btcsuite/btcd/chaincfg/chainhash"
+	"github.com/btcsuite/btcd/wire"
 )
 
 // These variables are the chain proof-of-work limit parameters for each default
@@ -230,6 +230,8 @@ var MainNetParams = Params{
 		{"167.71.90.101", true},
 		{"178.62.214.181", true},
 		{"64.225.18.129", true},
+		{"seed.verge.dev", true},
+		{"seed.marpmedev.xyz", true},
 	},
 
 	// Chain parameters
@@ -240,11 +242,11 @@ var MainNetParams = Params{
 	BIP0034Height:            227931, // 000000000000024b89b42a942fe0d9fea3bb44ab7bd1b19115dd6a759c0808b8
 	BIP0065Height:            388381, // 000000000000000004c2b624ed5d7756c508d90fd0da2c7c679febfa6c4735f0
 	BIP0066Height:            363725, // 00000000000000000379eaa19dce8c9b722d46ae6a57c2f1a988119488b50931
-	CoinbaseMaturity:         120, // xvg is 120 blocks to confirm new coinbase 
+	CoinbaseMaturity:         120,    // xvg is 120 blocks to confirm new coinbase
 	SubsidyReductionInterval: 500000,
-	TargetTimespan:           time.Hour * 0.5, // 30 seconds
-	TargetTimePerBlock:       time.Minute * 0.5,    // 30 seconds
-	RetargetAdjustmentFactor: 4,                   // 25% less, 400% more
+	TargetTimespan:           time.Second * 30, // 30 seconds
+	TargetTimePerBlock:       time.Second * 30, // 30 seconds
+	RetargetAdjustmentFactor: 4,                // 25% less, 400% more
 	ReduceMinDifficulty:      false,
 	MinDiffReductionTime:     0,
 	GenerateSupported:        false,
@@ -294,7 +296,7 @@ var MainNetParams = Params{
 
 	// Address encoding magics
 	PubKeyHashAddrID:        0x30, // starts with D
-	ScriptHashAddrID:        0x33, // starts with Q 
+	ScriptHashAddrID:        0x33, // starts with Q
 	PrivateKeyID:            0x80, // starts with 5 (uncompressed) or K (compressed)
 	WitnessPubKeyHashAddrID: 0x06, // starts with p2
 	WitnessScriptHashAddrID: 0x0A, // starts with 7Xh
