@@ -1,22 +1,22 @@
 btcd
 ====
 
-[![Build Status](https://travis-ci.org/btcsuite/btcd.png?branch=master)](https://travis-ci.org/btcsuite/btcd)
+[![Build Status](https://travis-ci.org/vergecurrency/btcd.png?branch=master)](https://travis-ci.org/btcsuite/btcd)
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
-[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/btcsuite/btcd)
+[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/vergecurrency/btcd)
 
-btcd is an alternative full node bitcoin implementation written in Go (golang).
+btcd is an alternative full node verge implementation written in Go (golang), forked from github.com/btcsuite/btcd
 
 This project is currently under active development and is in a Beta state.  It
 is extremely stable and has been in production use since October 2013.
 
 It properly downloads, validates, and serves the block chain using the exact
-rules (including consensus bugs) for block acceptance as Bitcoin Core.  We have
+rules (including consensus bugs) for block acceptance as Verge Core.  We have
 taken great care to avoid btcd causing a fork to the block chain.  It includes a
 full block validation testing framework which contains all of the 'official'
 block acceptance tests (and some additional ones) that is run on every pull
 request to help ensure it properly follows consensus.  Also, it passes all of
-the JSON test data in the Bitcoin Core code.
+the JSON test data in the Verge Core code.
 
 It also properly relays newly mined blocks, maintains a transaction pool, and
 relays individual transactions that have not yet made it into a block.  It
@@ -24,7 +24,7 @@ ensures all individual transactions admitted to the pool follow the rules
 required by the block chain and also includes more strict checks which filter
 transactions based on miner requirements ("standard" transactions).
 
-One key difference between btcd and Bitcoin Core is that btcd does *NOT* include
+One key difference between btcd and Verge Core is that btcd does *NOT* include
 wallet functionality and this was a very intentional design decision.  See the
 blog entry [here](https://blog.conformal.com/btcd-not-your-moms-bitcoin-daemon)
 for more details.  This means you can't actually make or receive payments
@@ -41,7 +41,7 @@ which are both under active development.
 
 #### Windows - MSI Available
 
-https://github.com/btcsuite/btcd/releases
+https://github.com/vergecurrency/btcd/releases
 
 #### Linux/BSD/MacOSX/POSIX - Build from Source
 
@@ -63,7 +63,7 @@ recommended that `GOPATH` is set to a directory in your home directory such as
 - Run the following commands to obtain btcd, all dependencies, and install it:
 
 ```bash
-$ cd $GOPATH/src/github.com/btcsuite/btcd
+$ cd $GOPATH/src/github.com/vergecurrency/btcd
 $ GO111MODULE=on go install -v . ./cmd/...
 ```
 
@@ -82,7 +82,7 @@ Install a newer MSI
 - Run the following commands to update btcd, all dependencies, and install it:
 
 ```bash
-$ cd $GOPATH/src/github.com/btcsuite/btcd
+$ cd $GOPATH/src/github.com/vergecurrency/btcd
 $ git pull
 $ GO111MODULE=on go install -v . ./cmd/...
 ```
@@ -111,17 +111,17 @@ $ ./btcd
 
 ## Issue Tracker
 
-The [integrated github issue tracker](https://github.com/btcsuite/btcd/issues)
+The [integrated github issue tracker](https://github.com/vergecurrency/btcd/issues)
 is used for this project.
 
 ## Documentation
 
-The documentation is a work-in-progress.  It is located in the [docs](https://github.com/btcsuite/btcd/tree/master/docs) folder.
+The documentation is a work-in-progress.  It is located in the [docs](https://github.com/vergecurrency/btcd/tree/master/docs) folder.
 
 ## Release Verification
 
 Please see our [documentation on the current build/verification
-process](https://github.com/btcsuite/btcd/tree/master/release) for all our
+process](https://github.com/vergecurrency/btcd/tree/master/release) for all our
 releases for information on how to verify the integrity of published releases
 using our reproducible build system.
 
