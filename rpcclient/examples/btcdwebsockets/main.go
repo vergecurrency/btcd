@@ -10,8 +10,8 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/btcsuite/btcd/rpcclient"
-	"github.com/btcsuite/btcd/wire"
+	"github.com/vergecurrency/btcd/rpcclient"
+	"github.com/vergecurrency/btcd/wire"
 	"github.com/btcsuite/btcutil"
 )
 

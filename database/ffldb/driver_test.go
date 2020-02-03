@@ -12,9 +12,9 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcd/database"
-	"github.com/btcsuite/btcd/database/ffldb"
+	"github.com/vergecurrency/btcd/chaincfg"
+	"github.com/vergecurrency/btcd/database"
+	"github.com/vergecurrency/btcd/database/ffldb"
 	"github.com/btcsuite/btcutil"
 )
 
