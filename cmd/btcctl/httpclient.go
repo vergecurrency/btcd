@@ -11,7 +11,7 @@ import (
 	"net/http"
 
 	"github.com/vergecurrency/btcd/btcjson"
-	"github.com/btcsuite/go-socks/socks"
+	"github.com/vergecurrency/go-socks/socks"
 )
 
 // newHTTPClient returns a new HTTP client that is configured according to the

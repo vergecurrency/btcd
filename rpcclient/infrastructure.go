@@ -25,7 +25,7 @@ import (
 	"time"
 
 	"github.com/vergecurrency/btcd/btcjson"
-	"github.com/btcsuite/go-socks/socks"
+	"github.com/vergecurrency/go-socks/socks"
 	"github.com/btcsuite/websocket"
 )
 

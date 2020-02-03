@@ -17,7 +17,7 @@ import (
 	"github.com/vergecurrency/btcd/chaincfg/chainhash"
 	"github.com/vergecurrency/btcd/peer"
 	"github.com/vergecurrency/btcd/wire"
-	"github.com/btcsuite/go-socks/socks"
+	"github.com/vergecurrency/go-socks/socks"
 )
 
 // conn mocks a network connection by implementing the net.Conn interface.  It
