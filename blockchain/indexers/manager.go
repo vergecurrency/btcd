@@ -8,10 +8,10 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/btcsuite/btcd/blockchain"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/database"
-	"github.com/btcsuite/btcd/wire"
+	"github.com/vergecurrency/btcd/blockchain"
+	"github.com/vergecurrency/btcd/chaincfg/chainhash"
+	"github.com/vergecurrency/btcd/database"
+	"github.com/vergecurrency/btcd/wire"
 	"github.com/btcsuite/btcutil"
 )
 
