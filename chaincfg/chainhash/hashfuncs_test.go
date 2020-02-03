@@ -134,3 +134,54 @@ func TestDoubleHashFuncs(t *testing.T) {
 		}
 	}
 }
+
+func TestScryptHash(t *testing.T) {
+	tests := []struct {
+		out string
+		in  string
+	}{
+		{"b34ab7cd1ce0c308146ab970fa75517bcf20f95c7ed7a34efc0d5f096469b2e1", ""},
+		{"8e34a65f6c15f48b5ab6531d80712d9227492849e8c244981a44412616a0c682", "a"},
+		{"65c8e2ed90985b0df7536306e826ca145021f15ccc7a6efdb01f10054d1bea0a", "ab"},
+		{"e652c1c3b7a8cd99d2edc49d4509f545c80e4395765e7225c4dde5d80dd76519", "abc"},
+		{"ba45cf6d555ab22ad17bde12cd146370df8e660334ce0162217b8603009e66e8", "abcd"},
+		{"5d8165a1360f89564a73fa6efdf4b8399c1057bf57e26400c9a8101fc6d914ee", "abcde"},
+		{"b878d31e39f0a8b42ecdfd4bc5aeec559adcfaf9014f7a73b6fe3fde437233d4", "abcdef"},
+		{"df4dec70e2942ac25463d95896cbc0e549b76e31c844fbd691b898b8d8f7fd9c", "abcdefg"},
+		{"584679ca39de428dbd3b68b61245dd50bd4f4bad4e854045357a42329038eab5", "abcdefgh"},
+		{"51e871d481a92b9841806a32546149dc9af7e7acceda3468d6242b82fa5c3bb8", "abcdefghi"},
+		{"1e69fd9d05b4a9c8fab8635783716fd5090b478fde3afe3970db46fa1df84026", "abcdefghij"},
+		{"db0394f389b13f222c8eb8f387cd6e345b02722b57db408f25fa5f2de71dec0e", "Discard medicine more than two years old."},
+		{"c5bca8c0f9303fdcaac8c8f44a9575d4fefb1ae8e9f559906399402d026ec889", "He who has a shady past knows that nice guys finish last."},
+		{"59cfc412e3292070428754f0a438b03ce3429baa04af388dee880a46bfbe0b56", "I wouldn't marry him with a ten foot pole."},
+		{"c9e42580a9d7cba7e9bbc1c3c9c88fe25be13a2a5144756704b1c93c860f8a90", "Free! Free!/A trip/to Mars/for 900/empty jars/Burma Shave"},
+		{"48c978aa40877ae825a57d06a33975414055c16aced9a0f8f518a92a834e7fd9", "The days of the digital watch are numbered.  -Tom Stoppard"},
+		{"94442bb3397b800d868940e5492c56268b609bd5103743b02dd893f57029663e", "Nepal premier won't resign."},
+		{"960ce4d52d52a538e92e3f18064dec7e48e6c1785b8f21be621e50286792e9b5", "For every action there is an equal and opposite government program."},
+		{"88dcba184126239040d59966a9f4683b8a609f9fb8a0983d2546fdeb2f598c8c", "His money is twice tainted: 'taint yours and 'taint mine."},
+		{"667c4b355ac59ab8635b327e780f16bcbb15d5aae93f599f812d4e090b4ec0b5", "There is no reason for any individual to have a computer in their home. -Ken Olsen, 1977"},
+		{"01bc7de93f2c104e80d2a520eecb27bc050f3a5867dcf8ecb78a5744d68e5a11", "It's a tiny change to the code and not completely disgusting. - Bob Manchek"},
+		{"597f7374eb7d78594684c062febd55b1be904df2d4d72ffd5a8d5d119722434d", "size:  a.out:  bad magic"},
+		{"e91b36c31fc7b2152283637ad737ed79feb7ea19731f25347b764badbbf35337", "The major problem is with sendmail.  -Mark Horton"},
+		{"91f7c5f99d2b34da4b140af291643ebabe1324b0aebbb769de04b8df167cd0d8", "Give me a rock, paper and scissors and I will move the world.  CCFestoon"},
+		{"97dc8822d148bbc2d340b7d27bcd5bc2fbd69db9b2a794fe51d0a92f5c00c06d", "If the enemy is within range, then so are you."},
+		{"b0c0f09005b50fb8df5e15b95b13ba9d2809d071dafb72b96d12de11860b8ef2", "It's well we cannot hear the screams/That we create in others' dreams."},
+		{"b0561d407a1bc33351b5a87fa6c63f5cdd9326203b8b7abad25ee89daf317d67", "You remind me of a TV show, but that's all right: I watch it anyway."},
+		{"73d4c61a503bde506dd8558ca183726112235e05c08f859d67badb5bc07ac22c", "C is as portable as Stonehedge!!"},
+		{"c475b8d5b1de24cf7be0c54047018b242eba5f93230bba88d1b4cadd87674981", "Even if I could be Shakespeare, I think I should still choose to be Faraday. - A. Huxley"},
+		{"8bfcb6ed4180b2fe2434480a18c8f14f44c3ba8b0c332eea5033c39b84ccf213", "The fugacity of a constituent in a mixture of gases at a given temperature is proportional to its mole fraction.  Lewis-Randall Rule"},
+		{"998bfb2d786fff547e2ffe75be7031838ce7fd5e0592f2925bf047ca55c7bbb5", "How can you write a big system without C++?  -Paul Glick"},
+	}
+
+	// Ensure the hash function which returns a Hash returns the expected
+	// result.
+	for _, test := range tests {
+		hash := ScryptHash([]byte(test.in))
+		h := fmt.Sprintf("%x", hash[:])
+		if h != test.out {
+			t.Errorf("ScryptHash(%q) = %s, want %s", test.in, h,
+				test.out)
+			continue
+		}
+	}
+}

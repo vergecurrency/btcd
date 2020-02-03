@@ -26,6 +26,10 @@ const MaxBlocksPerMsg = 500
 // After Segregated Witness, the max block payload has been raised to 4MB.
 const MaxBlockPayload = 4000000
 
+// MaxSignaturePayload is the maximum bytes a signature can be regardless of other
+// individual limits imposed by messages themselves.
+const MaxSignaturePayload = (1024 * 1024 * 32) // 32MB
+
 // maxTxPerBlock is the maximum number of transactions that could
 // possibly fit into a block.
 const maxTxPerBlock = (MaxBlockPayload / minTxPayload) + 1
@@ -43,6 +47,7 @@ type TxLoc struct {
 type MsgBlock struct {
 	Header       BlockHeader
 	Transactions []*MsgTx
+	Signature    []byte
 }
 
 // AddTransaction adds a transaction to the message.
@@ -90,6 +95,13 @@ func (msg *MsgBlock) BtcDecode(r io.Reader, pver uint32, enc MessageEncoding) er
 		}
 		msg.Transactions = append(msg.Transactions, &tx)
 	}
+
+	signature, err := ReadVarBytes(r, pver, MaxSignaturePayload, "block signature")
+	if err != nil {
+		return err
+	}
+
+	copy(msg.Signature, signature)
 
 	return nil
 }
@@ -189,6 +201,11 @@ func (msg *MsgBlock) BtcEncode(w io.Writer, pver uint32, enc MessageEncoding) er
 		if err != nil {
 			return err
 		}
+	}
+
+	err = WriteVarBytes(w, pver, msg.Signature)
+	if err != nil {
+		return err
 	}
 
 	return nil

@@ -288,6 +288,7 @@ func NewTxOut(value int64, pkScript []byte) *TxOut {
 // inputs and outputs.
 type MsgTx struct {
 	Version  int32
+	Time     int32
 	TxIn     []*TxIn
 	TxOut    []*TxOut
 	LockTime uint32
@@ -339,6 +340,7 @@ func (msg *MsgTx) Copy() *MsgTx {
 		TxIn:     make([]*TxIn, 0, len(msg.TxIn)),
 		TxOut:    make([]*TxOut, 0, len(msg.TxOut)),
 		LockTime: msg.LockTime,
+		Time:     msg.Time,
 	}
 
 	// Deep copy the old TxIn data.
@@ -414,6 +416,12 @@ func (msg *MsgTx) BtcDecode(r io.Reader, pver uint32, enc MessageEncoding) error
 		return err
 	}
 	msg.Version = int32(version)
+
+	time, err := binarySerializer.Uint32(r, littleEndian)
+	if err != nil {
+		return err
+	}
+	msg.Time = int32(time)
 
 	count, err := ReadVarInt(r, pver)
 	if err != nil {
@@ -684,6 +692,11 @@ func (msg *MsgTx) BtcEncode(w io.Writer, pver uint32, enc MessageEncoding) error
 		return err
 	}
 
+	err = binarySerializer.PutUint32(w, littleEndian, uint32(msg.Time))
+	if err != nil {
+		return err
+	}
+
 	// If the encoding version is set to WitnessEncoding, and the Flags
 	// field for the MsgTx aren't 0x00, then this indicates the transaction
 	// is to be encoded using the new witness inclusionary structure
@@ -787,9 +800,9 @@ func (msg *MsgTx) SerializeNoWitness(w io.Writer) error {
 // baseSize returns the serialized size of the transaction without accounting
 // for any witness data.
 func (msg *MsgTx) baseSize() int {
-	// Version 4 bytes + LockTime 4 bytes + Serialized varint size for the
+	// Version 4 bytes + Time 4 bytes + LockTime 4 bytes + Serialized varint size for the
 	// number of transaction inputs and outputs.
-	n := 8 + VarIntSerializeSize(uint64(len(msg.TxIn))) +
+	n := 12 + VarIntSerializeSize(uint64(len(msg.TxIn))) +
 		VarIntSerializeSize(uint64(len(msg.TxOut)))
 
 	for _, txIn := range msg.TxIn {
