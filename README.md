@@ -1,7 +1,7 @@
 btcd
 ====
 
-[![Build Status](https://travis-ci.org/vergecurrency/btcd.png?branch=master)](https://travis-ci.org/btcsuite/btcd)
+![Build & Test](https://github.com/vergecurrency/btcd/workflows/Build%20&%20Test/badge.svg)
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
 [![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/vergecurrency/btcd)
 
