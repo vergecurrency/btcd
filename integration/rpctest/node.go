@@ -15,7 +15,7 @@ import (
 	"time"
 
 	rpc "github.com/vergecurrency/btcd/rpcclient"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 )
 
 // nodeConfig contains all the args, and data required to launch a btcd process

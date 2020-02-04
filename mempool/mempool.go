@@ -20,7 +20,7 @@ import (
 	"github.com/vergecurrency/btcd/mining"
 	"github.com/vergecurrency/btcd/txscript"
 	"github.com/vergecurrency/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 )
 
 const (

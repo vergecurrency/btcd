@@ -13,7 +13,7 @@ import (
 
 	"github.com/vergecurrency/btcd/blockchain"
 	"github.com/vergecurrency/btcd/database"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 )
 
 var (

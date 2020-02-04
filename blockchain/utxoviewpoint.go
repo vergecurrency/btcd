@@ -11,7 +11,7 @@ import (
 	"github.com/vergecurrency/btcd/database"
 	"github.com/vergecurrency/btcd/txscript"
 	"github.com/vergecurrency/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 )
 
 // txoFlags is a bitmask defining additional information and state for a

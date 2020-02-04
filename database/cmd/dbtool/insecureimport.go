@@ -15,7 +15,7 @@ import (
 	"github.com/vergecurrency/btcd/chaincfg/chainhash"
 	"github.com/vergecurrency/btcd/database"
 	"github.com/vergecurrency/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 )
 
 // importCmd defines the configuration options for the insecureimport command.

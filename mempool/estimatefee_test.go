@@ -12,7 +12,7 @@ import (
 	"github.com/vergecurrency/btcd/chaincfg/chainhash"
 	"github.com/vergecurrency/btcd/mining"
 	"github.com/vergecurrency/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 )
 
 // newTestFeeEstimator creates a feeEstimator with some different parameters

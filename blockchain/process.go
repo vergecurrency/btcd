@@ -10,7 +10,7 @@ import (
 
 	"github.com/vergecurrency/btcd/chaincfg/chainhash"
 	"github.com/vergecurrency/btcd/database"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 )
 
 // BehaviorFlags is a bitmask defining tweaks to the normal behavior when

@@ -25,7 +25,7 @@
 //          "fmt"
 //          "log"
 //
-//          "github.com/btcsuite/btcutil"
+//          "github.com/vergecurrency/btcutil"
 //          "github.com/vergecurrency/btcd/chaincfg"
 //  )
 //

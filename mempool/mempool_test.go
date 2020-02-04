@@ -18,7 +18,7 @@ import (
 	"github.com/vergecurrency/btcd/chaincfg/chainhash"
 	"github.com/vergecurrency/btcd/txscript"
 	"github.com/vergecurrency/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 )
 
 // fakeChain is used by the pool harness to provide generated test utxos and

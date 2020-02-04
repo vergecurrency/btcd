@@ -14,7 +14,7 @@ import (
 	"github.com/vergecurrency/btcd/database"
 	_ "github.com/vergecurrency/btcd/database/ffldb"
 	"github.com/vergecurrency/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 )
 
 // This example demonstrates creating a new database.

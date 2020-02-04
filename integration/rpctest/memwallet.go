@@ -17,8 +17,8 @@ import (
 	"github.com/vergecurrency/btcd/rpcclient"
 	"github.com/vergecurrency/btcd/txscript"
 	"github.com/vergecurrency/btcd/wire"
-	"github.com/btcsuite/btcutil"
-	"github.com/btcsuite/btcutil/hdkeychain"
+	"github.com/vergecurrency/btcutil"
+	"github.com/vergecurrency/btcutil/hdkeychain"
 )
 
 var (

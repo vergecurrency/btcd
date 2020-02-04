@@ -11,7 +11,7 @@ import (
 
 	"github.com/vergecurrency/btcd/chaincfg"
 	"github.com/vergecurrency/btcd/database"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 )
 
 // BenchmarkBlockHeader benchmarks how long it takes to load the mainnet genesis

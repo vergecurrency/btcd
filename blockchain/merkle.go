@@ -11,7 +11,7 @@ import (
 
 	"github.com/vergecurrency/btcd/chaincfg/chainhash"
 	"github.com/vergecurrency/btcd/txscript"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 )
 
 const (

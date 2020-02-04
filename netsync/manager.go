@@ -19,7 +19,7 @@ import (
 	"github.com/vergecurrency/btcd/mempool"
 	peerpkg "github.com/vergecurrency/btcd/peer"
 	"github.com/vergecurrency/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 )
 
 const (

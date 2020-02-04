@@ -28,7 +28,7 @@ import (
 	_ "github.com/vergecurrency/btcd/database/ffldb"
 	"github.com/vergecurrency/btcd/mempool"
 	"github.com/vergecurrency/btcd/peer"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 	"github.com/vergecurrency/go-socks/socks"
 	flags "github.com/jessevdk/go-flags"
 )

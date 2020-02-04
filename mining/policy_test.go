@@ -11,7 +11,7 @@ import (
 	"github.com/vergecurrency/btcd/blockchain"
 	"github.com/vergecurrency/btcd/chaincfg/chainhash"
 	"github.com/vergecurrency/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 )
 
 // newHashFromStr converts the passed big-endian hex string into a

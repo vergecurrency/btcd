@@ -12,9 +12,9 @@ import (
 	"github.com/vergecurrency/btcd/chaincfg/chainhash"
 	"github.com/vergecurrency/btcd/database"
 	"github.com/vergecurrency/btcd/wire"
-	"github.com/btcsuite/btcutil"
-	"github.com/btcsuite/btcutil/gcs"
-	"github.com/btcsuite/btcutil/gcs/builder"
+	"github.com/vergecurrency/btcutil"
+	"github.com/vergecurrency/btcutil/gcs"
+	"github.com/vergecurrency/btcutil/gcs/builder"
 )
 
 const (

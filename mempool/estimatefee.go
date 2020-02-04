@@ -18,7 +18,7 @@ import (
 
 	"github.com/vergecurrency/btcd/chaincfg/chainhash"
 	"github.com/vergecurrency/btcd/mining"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 )
 
 // TODO incorporate Alex Morcos' modifications to Gavin's initial model

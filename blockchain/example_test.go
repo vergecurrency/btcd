@@ -14,7 +14,7 @@ import (
 	"github.com/vergecurrency/btcd/chaincfg"
 	"github.com/vergecurrency/btcd/database"
 	_ "github.com/vergecurrency/btcd/database/ffldb"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 )
 
 // This example demonstrates how to create a new chain instance and use

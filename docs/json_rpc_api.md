@@ -1095,7 +1095,7 @@ package main
 
 import (
 	"github.com/btcsuite/btcrpcclient"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 	"io/ioutil"
 	"log"
 	"path/filepath"
@@ -1156,7 +1156,7 @@ package main
 
 import (
 	"github.com/btcsuite/btcrpcclient"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 	"github.com/vergecurrency/btcd/chaincfg/chainhash"
 	"github.com/vergecurrency/btcd/wire"
 	"io/ioutil"
@@ -1248,7 +1248,7 @@ package main
 
 import (
 	"github.com/btcsuite/btcrpcclient"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 	"github.com/vergecurrency/btcd/chaincfg/chainhash"
 	"github.com/vergecurrency/btcd/wire"
 	"io/ioutil"

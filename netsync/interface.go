@@ -11,7 +11,7 @@ import (
 	"github.com/vergecurrency/btcd/mempool"
 	"github.com/vergecurrency/btcd/peer"
 	"github.com/vergecurrency/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 )
 
 // PeerNotifier exposes methods to notify peers of status changes to

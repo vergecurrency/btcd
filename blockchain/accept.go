@@ -8,7 +8,7 @@ import (
 	"fmt"
 
 	"github.com/vergecurrency/btcd/database"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 )
 
 // maybeAcceptBlock potentially accepts a block into the block chain and, if

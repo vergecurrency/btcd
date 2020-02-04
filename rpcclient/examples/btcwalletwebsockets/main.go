@@ -11,7 +11,7 @@ import (
 	"time"
 
 	"github.com/vergecurrency/btcd/rpcclient"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 	"github.com/davecgh/go-spew/spew"
 )
 

@@ -27,7 +27,7 @@ import (
 	"github.com/vergecurrency/btcd/database"
 	"github.com/vergecurrency/btcd/txscript"
 	"github.com/vergecurrency/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 	"github.com/btcsuite/websocket"
 	"golang.org/x/crypto/ripemd160"
 )

@@ -13,7 +13,7 @@ import (
 	"github.com/vergecurrency/btcd/netsync"
 	"github.com/vergecurrency/btcd/peer"
 	"github.com/vergecurrency/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 )
 
 // rpcPeer provides a peer for use with the RPC server and implements the

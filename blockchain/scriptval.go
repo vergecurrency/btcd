@@ -12,7 +12,7 @@ import (
 
 	"github.com/vergecurrency/btcd/txscript"
 	"github.com/vergecurrency/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 )
 
 // txValidateItem holds a transaction along with which input to validate.

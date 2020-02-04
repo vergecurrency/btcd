@@ -18,7 +18,7 @@ import (
 	"github.com/vergecurrency/btcd/database"
 	"github.com/vergecurrency/btcd/database/internal/treap"
 	"github.com/vergecurrency/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 	"github.com/btcsuite/goleveldb/leveldb"
 	"github.com/btcsuite/goleveldb/leveldb/comparer"
 	ldberrors "github.com/btcsuite/goleveldb/leveldb/errors"

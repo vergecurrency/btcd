@@ -12,7 +12,7 @@ import (
 
 	"github.com/vergecurrency/btcd/chaincfg"
 	"github.com/vergecurrency/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 )
 
 // mustParseShortForm parses the passed short form script and returns the

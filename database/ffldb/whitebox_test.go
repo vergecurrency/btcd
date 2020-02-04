@@ -20,7 +20,7 @@ import (
 	"github.com/vergecurrency/btcd/chaincfg"
 	"github.com/vergecurrency/btcd/database"
 	"github.com/vergecurrency/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/vergecurrency/btcutil"
 	"github.com/btcsuite/goleveldb/leveldb"
 	ldberrors "github.com/btcsuite/goleveldb/leveldb/errors"
 )
