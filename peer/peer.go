@@ -22,13 +22,13 @@ import (
 	"github.com/btcsuite/btcd/chaincfg"
 	"github.com/btcsuite/btcd/chaincfg/chainhash"
 	"github.com/btcsuite/btcd/wire"
-	"github.com/vergecurrency/go-socks/socks"
 	"github.com/davecgh/go-spew/spew"
+	"github.com/vergecurrency/go-socks/socks"
 )
 
 const (
 	// MaxProtocolVersion is the max protocol version the peer supports.
-	MaxProtocolVersion = wire.FeeFilterVersion
+	MaxProtocolVersion = wire.ProtocolVersion
 
 	// DefaultTrickleInterval is the min time between attempts to send an
 	// inv message to a peer.
