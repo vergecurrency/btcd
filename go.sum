@@ -25,6 +25,8 @@ github.com/kkdai/bstream v0.0.0-20161212061736-f391b8402d23/go.mod h1:J+Gs4SYgM6
 github.com/onsi/ginkgo v1.6.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v1.7.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/gomega v1.4.3/go.mod h1:ex+gbHU/CVuBBDIJjb2X0qEXbFg53c61hWP/1CpauHY=
+github.com/vergecurrency/btcd v0.0.1 h1:I1bcbSlpf4R+hw9mef34syZCt+jVBJ1TSFLw8nCI0tE=
+github.com/vergecurrency/btcd v0.0.1/go.mod h1:ruG6jds8I8hXUFWlOEfbICGa+HqfdBSfvR73nYcMfII=
 github.com/vergecurrency/go-socks v0.0.0-20170105172521-4720035b7bfd h1:MuBrkpFHTqXc+cCdoRMWE/cWsdO15TdiDVsiJaiqpqU=
 github.com/vergecurrency/go-socks v0.0.0-20170105172521-4720035b7bfd/go.mod h1:m56HWadPGweu0XhQJgb+RyDAEVeYeUYLQ7ST9WnGDNA=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
