@@ -11,7 +11,7 @@
       "mode": "auto",
       "program": "${workspaceFolder}/btcd.go",
       "env": {},
-      "args": ["-d", "debug", "--connect", "192.168.79.17"]
+      "args": ["-d", "trace", "--connect", "127.0.0.1:22222"]
     }
   ]
 }
