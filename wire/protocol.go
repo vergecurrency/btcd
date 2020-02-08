@@ -10,7 +10,6 @@ import (
 	"strings"
 )
 
-// XXX pedro: we will probably need to bump this.
 const (
 	// ProtocolVersion is the latest protocol version this package supports.
 	ProtocolVersion uint32 = 90008
@@ -147,7 +146,7 @@ type BitcoinNet uint32
 // better idea to simply disconnect clients that are misbehaving over TCP.
 const (
 	// MainNet represents the main bitcoin network.
-	MainNet BitcoinNet = 0xd9b4bef9
+	MainNet BitcoinNet = 0xff7ea7f7
 
 	// TestNet represents the regression test network.
 	TestNet BitcoinNet = 0xdab5bffa
