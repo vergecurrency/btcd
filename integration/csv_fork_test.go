@@ -14,14 +14,14 @@ import (
 	"testing"
 	"time"
 
-	"github.com/vergecurrency/btcd/blockchain"
-	"github.com/vergecurrency/btcd/btcec"
-	"github.com/vergecurrency/btcd/chaincfg"
-	"github.com/vergecurrency/btcd/chaincfg/chainhash"
-	"github.com/vergecurrency/btcd/integration/rpctest"
-	"github.com/vergecurrency/btcd/txscript"
-	"github.com/vergecurrency/btcd/wire"
-	"github.com/vergecurrency/btcutil"
+	"github.com/btcsuite/btcd/blockchain"
+	"github.com/btcsuite/btcd/btcec"
+	"github.com/btcsuite/btcd/chaincfg"
+	"github.com/btcsuite/btcd/chaincfg/chainhash"
+	"github.com/btcsuite/btcd/integration/rpctest"
+	"github.com/btcsuite/btcd/txscript"
+	"github.com/btcsuite/btcd/wire"
+	"github.com/btcsuite/btcutil"
 )
 
 const (

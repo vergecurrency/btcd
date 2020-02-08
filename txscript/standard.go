@@ -7,9 +7,9 @@ package txscript
 import (
 	"fmt"
 
-	"github.com/vergecurrency/btcd/chaincfg"
-	"github.com/vergecurrency/btcd/wire"
-	"github.com/vergecurrency/btcutil"
+	"github.com/btcsuite/btcd/chaincfg"
+	"github.com/btcsuite/btcd/wire"
+	"github.com/btcsuite/btcutil"
 )
 
 const (

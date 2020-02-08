@@ -7,7 +7,7 @@ package blockchain
 import (
 	"math"
 
-	"github.com/vergecurrency/btcd/chaincfg"
+	"github.com/btcsuite/btcd/chaincfg"
 )
 
 const (

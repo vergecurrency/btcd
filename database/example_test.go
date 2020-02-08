@@ -10,11 +10,11 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/vergecurrency/btcd/chaincfg"
-	"github.com/vergecurrency/btcd/database"
-	_ "github.com/vergecurrency/btcd/database/ffldb"
-	"github.com/vergecurrency/btcd/wire"
-	"github.com/vergecurrency/btcutil"
+	"github.com/btcsuite/btcd/chaincfg"
+	"github.com/btcsuite/btcd/database"
+	_ "github.com/btcsuite/btcd/database/ffldb"
+	"github.com/btcsuite/btcd/wire"
+	"github.com/btcsuite/btcutil"
 )
 
 // This example demonstrates creating a new database.
@@ -22,8 +22,8 @@ func ExampleCreate() {
 	// This example assumes the ffldb driver is imported.
 	//
 	// import (
-	// 	"github.com/vergecurrency/btcd/database"
-	// 	_ "github.com/vergecurrency/btcd/database/ffldb"
+	// 	"github.com/btcsuite/btcd/database"
+	// 	_ "github.com/btcsuite/btcd/database/ffldb"
 	// )
 
 	// Create a database and schedule it to be closed and removed on exit.
@@ -48,8 +48,8 @@ func Example_basicUsage() {
 	// This example assumes the ffldb driver is imported.
 	//
 	// import (
-	// 	"github.com/vergecurrency/btcd/database"
-	// 	_ "github.com/vergecurrency/btcd/database/ffldb"
+	// 	"github.com/btcsuite/btcd/database"
+	// 	_ "github.com/btcsuite/btcd/database/ffldb"
 	// )
 
 	// Create a database and schedule it to be closed and removed on exit.
@@ -114,8 +114,8 @@ func Example_blockStorageAndRetrieval() {
 	// This example assumes the ffldb driver is imported.
 	//
 	// import (
-	// 	"github.com/vergecurrency/btcd/database"
-	// 	_ "github.com/vergecurrency/btcd/database/ffldb"
+	// 	"github.com/btcsuite/btcd/database"
+	// 	_ "github.com/btcsuite/btcd/database/ffldb"
 	// )
 
 	// Create a database and schedule it to be closed and removed on exit.

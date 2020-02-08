@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/vergecurrency/btcd/chaincfg/chainhash"
-	"github.com/vergecurrency/btcd/wire"
+	"github.com/btcsuite/btcd/chaincfg/chainhash"
+	"github.com/btcsuite/btcd/wire"
 )
 
 // These variables are the chain proof-of-work limit parameters for each default
@@ -227,9 +227,9 @@ var MainNetParams = Params{
 	Net:         wire.MainNet,
 	DefaultPort: "21102",
 	DNSSeeds: []DNSSeed{
-		{"167.71.90.101", true},
-		{"178.62.214.181", true},
-		{"64.225.18.129", true},
+		{"167.71.90.101", false},
+		{"178.62.214.181", false},
+		{"64.225.18.129", false},
 		{"seed.verge.dev", true},
 		{"seed.marpmedev.xyz", true},
 	},

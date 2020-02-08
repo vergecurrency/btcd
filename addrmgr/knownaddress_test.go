@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/vergecurrency/btcd/addrmgr"
-	"github.com/vergecurrency/btcd/wire"
+	"github.com/btcsuite/btcd/addrmgr"
+	"github.com/btcsuite/btcd/wire"
 )
 
 func TestChance(t *testing.T) {

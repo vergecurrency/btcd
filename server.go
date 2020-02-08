@@ -22,22 +22,22 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/vergecurrency/btcd/addrmgr"
-	"github.com/vergecurrency/btcd/blockchain"
-	"github.com/vergecurrency/btcd/blockchain/indexers"
-	"github.com/vergecurrency/btcd/chaincfg"
-	"github.com/vergecurrency/btcd/chaincfg/chainhash"
-	"github.com/vergecurrency/btcd/connmgr"
-	"github.com/vergecurrency/btcd/database"
-	"github.com/vergecurrency/btcd/mempool"
-	"github.com/vergecurrency/btcd/mining"
-	"github.com/vergecurrency/btcd/mining/cpuminer"
-	"github.com/vergecurrency/btcd/netsync"
-	"github.com/vergecurrency/btcd/peer"
-	"github.com/vergecurrency/btcd/txscript"
-	"github.com/vergecurrency/btcd/wire"
-	"github.com/vergecurrency/btcutil"
-	"github.com/vergecurrency/btcutil/bloom"
+	"github.com/btcsuite/btcd/addrmgr"
+	"github.com/btcsuite/btcd/blockchain"
+	"github.com/btcsuite/btcd/blockchain/indexers"
+	"github.com/btcsuite/btcd/chaincfg"
+	"github.com/btcsuite/btcd/chaincfg/chainhash"
+	"github.com/btcsuite/btcd/connmgr"
+	"github.com/btcsuite/btcd/database"
+	"github.com/btcsuite/btcd/mempool"
+	"github.com/btcsuite/btcd/mining"
+	"github.com/btcsuite/btcd/mining/cpuminer"
+	"github.com/btcsuite/btcd/netsync"
+	"github.com/btcsuite/btcd/peer"
+	"github.com/btcsuite/btcd/txscript"
+	"github.com/btcsuite/btcd/wire"
+	"github.com/btcsuite/btcutil"
+	"github.com/btcsuite/btcutil/bloom"
 )
 
 const (
@@ -48,10 +48,10 @@ const (
 
 	// defaultRequiredServices describes the default services that are
 	// required to be supported by outbound peers.
-	defaultRequiredServices = wire.SFNodeNetwork
+	defaultRequiredServices = wire.SFNodeNetwork | wire.SFNodeWitness
 
 	// defaultTargetOutbound is the default number of outbound peers to target.
-	defaultTargetOutbound = 8
+	defaultTargetOutbound = 16
 
 	// connectionRetryInterval is the base amount of time to wait in between
 	// retries when connecting to persistent peers.  It is adjusted by the

@@ -12,7 +12,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/vergecurrency/btcutil"
+	"github.com/btcsuite/btcutil"
 	flags "github.com/jessevdk/go-flags"
 )
 

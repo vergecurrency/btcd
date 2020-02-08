@@ -5,8 +5,8 @@
 package main
 
 import (
-	"github.com/vergecurrency/btcd/chaincfg"
-	"github.com/vergecurrency/btcd/wire"
+	"github.com/btcsuite/btcd/chaincfg"
+	"github.com/btcsuite/btcd/wire"
 )
 
 // activeNetParams is a pointer to the parameters specific to the

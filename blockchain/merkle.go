@@ -9,9 +9,9 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/vergecurrency/btcd/chaincfg/chainhash"
-	"github.com/vergecurrency/btcd/txscript"
-	"github.com/vergecurrency/btcutil"
+	"github.com/btcsuite/btcd/chaincfg/chainhash"
+	"github.com/btcsuite/btcd/txscript"
+	"github.com/btcsuite/btcutil"
 )
 
 const (

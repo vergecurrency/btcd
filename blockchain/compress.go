@@ -5,8 +5,8 @@
 package blockchain
 
 import (
-	"github.com/vergecurrency/btcd/btcec"
-	"github.com/vergecurrency/btcd/txscript"
+	"github.com/btcsuite/btcd/btcec"
+	"github.com/btcsuite/btcd/txscript"
 )
 
 // -----------------------------------------------------------------------------

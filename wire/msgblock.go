@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/vergecurrency/btcd/chaincfg/chainhash"
+	"github.com/btcsuite/btcd/chaincfg/chainhash"
 )
 
 // defaultTransactionAlloc is the default size used for the backing array

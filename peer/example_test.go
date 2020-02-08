@@ -10,9 +10,9 @@ import (
 	"net"
 	"time"
 
-	"github.com/vergecurrency/btcd/chaincfg"
-	"github.com/vergecurrency/btcd/peer"
-	"github.com/vergecurrency/btcd/wire"
+	"github.com/btcsuite/btcd/chaincfg"
+	"github.com/btcsuite/btcd/peer"
+	"github.com/btcsuite/btcd/wire"
 )
 
 // mockRemotePeer creates a basic inbound peer listening on the simnet port for

@@ -24,7 +24,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/vergecurrency/btcd/btcjson"
+	"github.com/btcsuite/btcd/btcjson"
 	"github.com/vergecurrency/go-socks/socks"
 	"github.com/btcsuite/websocket"
 )

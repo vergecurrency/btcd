@@ -7,8 +7,8 @@ package main
 import (
 	"time"
 
-	"github.com/vergecurrency/btcd/chaincfg/chainhash"
-	"github.com/vergecurrency/btcd/database"
+	"github.com/btcsuite/btcd/chaincfg/chainhash"
+	"github.com/btcsuite/btcd/database"
 )
 
 // headersCmd defines the configuration options for the loadheaders command.

@@ -9,7 +9,7 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/vergecurrency/btcd/txscript"
+	"github.com/btcsuite/btcd/txscript"
 )
 
 // TestCheckBlockScripts ensures that validating the all of the scripts in a

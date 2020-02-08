@@ -5,13 +5,13 @@
 package netsync
 
 import (
-	"github.com/vergecurrency/btcd/blockchain"
-	"github.com/vergecurrency/btcd/chaincfg"
-	"github.com/vergecurrency/btcd/chaincfg/chainhash"
-	"github.com/vergecurrency/btcd/mempool"
-	"github.com/vergecurrency/btcd/peer"
-	"github.com/vergecurrency/btcd/wire"
-	"github.com/vergecurrency/btcutil"
+	"github.com/btcsuite/btcd/blockchain"
+	"github.com/btcsuite/btcd/chaincfg"
+	"github.com/btcsuite/btcd/chaincfg/chainhash"
+	"github.com/btcsuite/btcd/mempool"
+	"github.com/btcsuite/btcd/peer"
+	"github.com/btcsuite/btcd/wire"
+	"github.com/btcsuite/btcutil"
 )
 
 // PeerNotifier exposes methods to notify peers of status changes to

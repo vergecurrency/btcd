@@ -12,10 +12,10 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/vergecurrency/btcd/chaincfg"
-	"github.com/vergecurrency/btcd/database"
-	"github.com/vergecurrency/btcd/database/ffldb"
-	"github.com/vergecurrency/btcutil"
+	"github.com/btcsuite/btcd/chaincfg"
+	"github.com/btcsuite/btcd/database"
+	"github.com/btcsuite/btcd/database/ffldb"
+	"github.com/btcsuite/btcutil"
 )
 
 // dbType is the database type name for this driver.

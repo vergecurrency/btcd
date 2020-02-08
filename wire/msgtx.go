@@ -10,7 +10,7 @@ import (
 	"io"
 	"strconv"
 
-	"github.com/vergecurrency/btcd/chaincfg/chainhash"
+	"github.com/btcsuite/btcd/chaincfg/chainhash"
 )
 
 const (

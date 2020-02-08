@@ -17,7 +17,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/vergecurrency/btcd/btcec"
+	"github.com/btcsuite/btcd/btcec"
 )
 
 func main() {

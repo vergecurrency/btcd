@@ -8,8 +8,8 @@
 package database
 
 import (
-	"github.com/vergecurrency/btcd/chaincfg/chainhash"
-	"github.com/vergecurrency/btcutil"
+	"github.com/btcsuite/btcd/chaincfg/chainhash"
+	"github.com/btcsuite/btcutil"
 )
 
 // Cursor represents a cursor over key/value pairs and nested buckets of a

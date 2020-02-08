@@ -10,8 +10,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/vergecurrency/btcd/chaincfg/chainhash"
-	"github.com/vergecurrency/btcd/wire"
+	"github.com/btcsuite/btcd/chaincfg/chainhash"
+	"github.com/btcsuite/btcd/wire"
 )
 
 // Bip16Activation is the timestamp where BIP0016 is valid to use in the
