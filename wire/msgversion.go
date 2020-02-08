@@ -89,7 +89,7 @@ func (msg *MsgVersion) BtcDecode(r io.Reader, pver uint32, enc MessageEncoding) 
 		return err
 	}
 
-	err = readNetAddress(buf, pver, &msg.AddrYou, false)
+	err = readNetAddress(buf, pver, &msg.AddrYou, true)
 	if err != nil {
 		return err
 	}
@@ -98,7 +98,7 @@ func (msg *MsgVersion) BtcDecode(r io.Reader, pver uint32, enc MessageEncoding) 
 	// field and they are only considered present if there are bytes
 	// remaining in the message.
 	if buf.Len() > 0 {
-		err = readNetAddress(buf, pver, &msg.AddrMe, false)
+		err = readNetAddress(buf, pver, &msg.AddrMe, true)
 		if err != nil {
 			return err
 		}
@@ -161,12 +161,12 @@ func (msg *MsgVersion) BtcEncode(w io.Writer, pver uint32, enc MessageEncoding) 
 		return err
 	}
 
-	err = writeNetAddress(w, pver, &msg.AddrYou, false)
+	err = writeNetAddress(w, pver, &msg.AddrYou, true)
 	if err != nil {
 		return err
 	}
 
-	err = writeNetAddress(w, pver, &msg.AddrMe, false)
+	err = writeNetAddress(w, pver, &msg.AddrMe, true)
 	if err != nil {
 		return err
 	}
