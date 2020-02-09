@@ -57,6 +57,7 @@ const (
 	CmdCFilter      = "cfilter"
 	CmdCFHeaders    = "cfheaders"
 	CmdCFCheckpt    = "cfcheckpt"
+	CmdSendCmpct    = "sendcmpct"
 )
 
 // MessageEncoding represents the wire message encoding format to be used.
@@ -75,7 +76,7 @@ const (
 
 // LatestEncoding is the most recently specified encoding for the Bitcoin wire
 // protocol.
-var LatestEncoding = WitnessEncoding
+var LatestEncoding = BaseEncoding
 
 // Message is an interface that describes a bitcoin message.  A type that
 // implements Message has complete control over the representation of its data
@@ -179,6 +180,9 @@ func makeEmptyMessage(command string) (Message, error) {
 
 	case CmdCFCheckpt:
 		msg = &MsgCFCheckpt{}
+
+	case CmdSendCmpct:
+		msg = &MsgSendCmpct{}
 
 	default:
 		return nil, fmt.Errorf("unhandled command [%s]", command)
