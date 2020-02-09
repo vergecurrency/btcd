@@ -65,12 +65,23 @@ func (msg *MsgHeaders) BtcDecode(r io.Reader, pver uint32, enc MessageEncoding) 
 			return err
 		}
 
-		// Ensure the transaction count is zero for headers.
-		if txCount > 0 {
-			str := fmt.Sprintf("block headers may not contain "+
-				"transactions [count %v]", txCount)
-			return messageError("MsgHeaders.BtcDecode", str)
+		// Deserialize each transaction while keeping track of its location
+		// within the byte stream.
+		transactions := make([]*MsgTx, 0, txCount)
+		for i := uint64(0); i < txCount; i++ {
+			tx := MsgTx{}
+			err := tx.DeserializeNoWitness(r)
+			if err != nil {
+				return err
+			}
+			transactions = append(transactions, &tx)
 		}
+
+		_, err = ReadVarBytes(r, pver, MaxSignaturePayload, "block signature")
+		if err != nil {
+			return err
+		}
+
 		msg.AddBlockHeader(bh)
 	}
 
@@ -123,7 +134,7 @@ func (msg *MsgHeaders) Command() string {
 func (msg *MsgHeaders) MaxPayloadLength(pver uint32) uint32 {
 	// Num headers (varInt) + max allowed headers (header length + 1 byte
 	// for the number of transactions which is always 0).
-	return MaxVarIntPayload + ((MaxBlockHeaderPayload + 1) *
+	return MaxVarIntPayload + ((MaxBlockHeaderPayload + 1 + 32) *
 		MaxBlockHeadersPerMsg)
 }
 
