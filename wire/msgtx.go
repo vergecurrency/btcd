@@ -288,7 +288,7 @@ func NewTxOut(value int64, pkScript []byte) *TxOut {
 // inputs and outputs.
 type MsgTx struct {
 	Version  int32
-	Time     int32
+	Time     uint32
 	TxIn     []*TxIn
 	TxOut    []*TxOut
 	LockTime uint32
@@ -417,39 +417,14 @@ func (msg *MsgTx) BtcDecode(r io.Reader, pver uint32, enc MessageEncoding) error
 	}
 	msg.Version = int32(version)
 
-	time, err := binarySerializer.Uint32(r, littleEndian)
+	msg.Time, err = binarySerializer.Uint32(r, littleEndian)
 	if err != nil {
 		return err
 	}
-	msg.Time = int32(time)
 
 	count, err := ReadVarInt(r, pver)
 	if err != nil {
 		return err
-	}
-
-	// A count of zero (meaning no TxIn's to the uninitiated) indicates
-	// this is a transaction with witness data.
-	var flag [1]byte
-	if count == 0 && enc == WitnessEncoding {
-		// Next, we need to read the flag, which is a single byte.
-		if _, err = io.ReadFull(r, flag[:]); err != nil {
-			return err
-		}
-
-		// At the moment, the flag MUST be 0x01. In the future other
-		// flag types may be supported.
-		if flag[0] != 0x01 {
-			str := fmt.Sprintf("witness tx but flag byte is %x", flag)
-			return messageError("MsgTx.BtcDecode", str)
-		}
-
-		// With the Segregated Witness specific fields decoded, we can
-		// now read in the actual txin count.
-		count, err = ReadVarInt(r, pver)
-		if err != nil {
-			return err
-		}
 	}
 
 	// Prevent more input transactions than could possibly fit into a
@@ -539,45 +514,6 @@ func (msg *MsgTx) BtcDecode(r io.Reader, pver uint32, enc MessageEncoding) error
 			return err
 		}
 		totalScriptSize += uint64(len(to.PkScript))
-	}
-
-	// If the transaction's flag byte isn't 0x00 at this point, then one or
-	// more of its inputs has accompanying witness data.
-	if flag[0] != 0 && enc == WitnessEncoding {
-		for _, txin := range msg.TxIn {
-			// For each input, the witness is encoded as a stack
-			// with one or more items. Therefore, we first read a
-			// varint which encodes the number of stack items.
-			witCount, err := ReadVarInt(r, pver)
-			if err != nil {
-				returnScriptBuffers()
-				return err
-			}
-
-			// Prevent a possible memory exhaustion attack by
-			// limiting the witCount value to a sane upper bound.
-			if witCount > maxWitnessItemsPerInput {
-				returnScriptBuffers()
-				str := fmt.Sprintf("too many witness items to fit "+
-					"into max message size [count %d, max %d]",
-					witCount, maxWitnessItemsPerInput)
-				return messageError("MsgTx.BtcDecode", str)
-			}
-
-			// Then for witCount number of stack items, each item
-			// has a varint length prefix, followed by the witness
-			// item itself.
-			txin.Witness = make([][]byte, witCount)
-			for j := uint64(0); j < witCount; j++ {
-				txin.Witness[j], err = readScript(r, pver,
-					maxWitnessItemSize, "script witness item")
-				if err != nil {
-					returnScriptBuffers()
-					return err
-				}
-				totalScriptSize += uint64(len(txin.Witness[j]))
-			}
-		}
 	}
 
 	msg.LockTime, err = binarySerializer.Uint32(r, littleEndian)
