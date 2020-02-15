@@ -1,11 +1,11 @@
-xvgd
+btcd
 ====
 
-![Build & Test](https://github.com/vergecurrency/xvgd/workflows/Build%20&%20Test/badge.svg)
+![Build & Test](https://github.com/btcsuite/btcd/workflows/Build%20&%20Test/badge.svg)
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
 [![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/btcsuite/btcd)
 
-xvgd is an alternative full node verge implementation written in Go (golang), forked from github.com/btcsuite/btcd
+btcd is an alternative full node verge implementation written in Go (golang), forked from github.com/btcsuite/btcd
 
 This project is currently under active development and is in a Beta state.  It
 is extremely stable and has been in production use since October 2013.
