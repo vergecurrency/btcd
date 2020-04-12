@@ -238,7 +238,7 @@ func (b *BlockChain) ProcessBlock(block *btcutil.Block, flags BehaviorFlags) (bo
 		return false, false, err
 	}
 
-	log.Debugf("Accepted block %v", blockHash)
+	log.Debugf("Accepted block %v @ Height %v", blockHash, block.Height())
 
 	return isMainChain, false, nil
 }
