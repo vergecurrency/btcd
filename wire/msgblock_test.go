@@ -71,7 +71,7 @@ func TestBlock(t *testing.T) {
 // hashes from a block accurately.
 func TestBlockTxHashes(t *testing.T) {
 	// Block 1, transaction 1 hash.
-	hashStr := "0e3e2357e806b6cdb1f70b54c3a3a17b6714ee1f0e68bebb44a74b1efd512098"
+	hashStr := "21777b05b3d425f28ef09a1601308e04a0b56304a83a4dbb7c5ec251c3a6d93b"
 	wantHash, err := chainhash.NewHashFromStr(hashStr)
 	if err != nil {
 		t.Errorf("NewHashFromStr: %v", err)
