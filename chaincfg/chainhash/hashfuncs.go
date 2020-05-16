@@ -6,8 +6,12 @@
 package chainhash
 
 import (
+	"crypto"
 	"crypto/sha256"
 
+	"github.com/Groestlcoin/go-groestl-hash/groestl"
+	"github.com/bitgoin/lyra2rev2"
+	"github.com/marpme/go-x17"
 	"golang.org/x/crypto/scrypt"
 )
 
@@ -38,11 +42,69 @@ func DoubleHashH(b []byte) Hash {
 
 // ScryptHash calculates scryptHash(b) and returns the resulting bytes as a Hash
 func ScryptHash(b []byte) Hash {
-	scryptHash, _ := scrypt.Key(b, b, 1024, 1, 1, 32)
-	var hash [32]byte
+	scryptHash, err := scrypt.Key(b, b, 1024, 1, 1, 32)
+	if err != nil {
+		panic(err)
+	}
 
+	var hash [32]byte
 	for i := 0; i < len(hash); i++ {
 		hash[i] = scryptHash[i]
 	}
 	return Hash(hash)
+}
+
+// GroestlHash calculates GroestlHash(b) and returns the resulting bytes as a Hash
+func GroestlHash(b []byte) Hash {
+	groestl, out := groestl.New(), [32]byte{}
+
+	_, err := groestl.Write(b)
+	if err != nil {
+		panic(err)
+	}
+
+	groestl.Close(out[:], 0, 0)
+
+	return Hash(out)
+}
+
+// BlakeHash calculates GroestlHash(b) and returns the resulting bytes as a Hash
+func BlakeHash(b []byte) Hash {
+	blake2s, out := crypto.BLAKE2s_256.New(), []byte{}
+
+	_, err := blake2s.Write(b)
+	if err != nil {
+		panic(err)
+	}
+
+	out = blake2s.Sum(out)
+	var hash [32]byte
+	for i := 0; i < len(hash); i++ {
+		hash[i] = out[i]
+	}
+
+	return Hash(hash)
+}
+
+// Lyra2Rev2Hash calculates Lyra2Rev2Hash(b) and returns the resulting bytes as a Hash
+func Lyra2Rev2Hash(b []byte) Hash {
+	lyraHash, err := lyra2rev2.Sum(b)
+
+	if err != nil {
+		panic(err)
+	}
+
+	var hash [32]byte
+	for i := 0; i < len(hash); i++ {
+		hash[i] = lyraHash[i]
+	}
+
+	return Hash(hash)
+}
+
+func X17Hash(b []byte) Hash {
+	var dst [32]byte
+	x17.New().Hash(b, dst[:])
+
+	return Hash(dst)
 }
