@@ -71,7 +71,7 @@ func TestBlock(t *testing.T) {
 // hashes from a block accurately.
 func TestBlockTxHashes(t *testing.T) {
 	// Block 1, transaction 1 hash.
-	hashStr := "21777b05b3d425f28ef09a1601308e04a0b56304a83a4dbb7c5ec251c3a6d93b"
+	hashStr := "5418ac98015b3fd202253597bd3c5dd5733d851439f09b8913abe9216059a9ef"
 	wantHash, err := chainhash.NewHashFromStr(hashStr)
 	if err != nil {
 		t.Errorf("NewHashFromStr: %v", err)
@@ -515,12 +515,12 @@ var blockOne = MsgBlock{
 					SignatureScript: []byte{
 						0x51, 0x01, 0x01, 0x06, 0x2f, 0x50, 0x32, 0x53, 0x48, 0x2f,
 					},
-					Sequence: 0xFFFFFFFF,
+					Sequence: 0xffffffff,
 				},
 			},
 			TxOut: []*TxOut{
 				{
-					Value: 0x2E90EDD000,
+					Value: 0x2e90edd000,
 					PkScript: []byte{
 						0x21, 0x02, 0x43, 0x87, 0x54, 0x5a, 0xeb, 0xf2, 0xf1, 0x9a,
 						0x15, 0x4a, 0x05, 0x84, 0x51, 0x81, 0x94, 0x46, 0x2e, 0x8b,
@@ -529,7 +529,7 @@ var blockOne = MsgBlock{
 					},
 				},
 			},
-			Time:     1412881487,
+			Time:     0x5436DC43,
 			LockTime: 0,
 		},
 	},
