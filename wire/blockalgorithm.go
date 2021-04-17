@@ -38,3 +38,24 @@ func (h *BlockHeader) BlockAlgorithm() Algorithm {
 		return SCRYPT
 	}
 }
+
+// GetAlgorithmString returns the block algorithm string that has been within the blockheader
+func (h *BlockHeader) GetAlgorithmString() string {
+	var extractedAlgorithm Algorithm = Algorithm(h.Version & AlgorithmBitMask)
+
+	switch extractedAlgorithm {
+	case SCRYPT:
+		return "scrypt"
+	case GROESTL:
+		return "Groestl"
+	case X17:
+		return "x17"
+	case BLAKE:
+		return "blake2s"
+	case LYRA2RE:
+		return "lyra2re"
+	default:
+		// Everything that possibly moves out of range will identified as scrypt.
+		return "scrypt"
+	}
+}

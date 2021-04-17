@@ -9,6 +9,9 @@ import (
 	"crypto"
 	"crypto/sha256"
 
+	// Blake2s is required due to Hash.New(blake2s)
+	_ "golang.org/x/crypto/blake2s"
+
 	"github.com/Groestlcoin/go-groestl-hash/groestl"
 	"github.com/bitgoin/lyra2rev2"
 	"github.com/marpme/go-x17"
