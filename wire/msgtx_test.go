@@ -267,6 +267,7 @@ func TestTxWire(t *testing.T) {
 	noTx.Version = 1
 	noTxEncoded := []byte{
 		0x01, 0x00, 0x00, 0x00, // Version
+		0x00, 0x00, 0x00, 0x00, // timestamp
 		0x00,                   // Varint for number of input transactions
 		0x00,                   // Varint for number of output transactions
 		0x00, 0x00, 0x00, 0x00, // Lock time
@@ -834,6 +835,7 @@ var multiTx = &MsgTx{
 // 60002 and is used in the various tests.
 var multiTxEncoded = []byte{
 	0x01, 0x00, 0x00, 0x00, // Version
+	0x00, 0x00, 0x00, 0x00, // timestamp
 	0x01, // Varint for number of input transactions
 	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -935,6 +937,7 @@ var multiWitnessTx = &MsgTx{
 // tests.
 var multiWitnessTxEncoded = []byte{
 	0x1, 0x0, 0x0, 0x0, // Version
+	0x00, 0x00, 0x00, 0x00, // timestamp
 	0x0, // Marker byte indicating 0 inputs, or a segwit encoded tx
 	0x1, // Flag byte
 	0x1, // Varint for number of inputs
@@ -978,6 +981,7 @@ var multiWitnessTxEncoded = []byte{
 // being set to 0x01, the flag is 0x00, which should trigger a decoding error.
 var multiWitnessTxEncodedNonZeroFlag = []byte{
 	0x1, 0x0, 0x0, 0x0, // Version
+	0x00, 0x00, 0x00, 0x00, // timestamp
 	0x0, // Marker byte indicating 0 inputs, or a segwit encoded tx
 	0x0, // Incorrect flag byte (should be 0x01)
 	0x1, // Varint for number of inputs

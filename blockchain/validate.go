@@ -324,11 +324,12 @@ func checkProofOfWork(header *wire.BlockHeader, powLimit *big.Int, flags Behavio
 	// to avoid proof of work checks is set.
 	if flags&BFNoPoWCheck != BFNoPoWCheck {
 		// The block hash must be less than the claimed target.
-		hash := header.BlockHash()
+		algorithm := header.GetAlgorithmString()
+		hash := header.BlockPoWHash()
 		hashNum := HashToBig(&hash)
 		if hashNum.Cmp(target) > 0 {
-			str := fmt.Sprintf("block hash of %064x is higher than "+
-				"expected max of %064x", hashNum, target)
+			str := fmt.Sprintf("%s block hash of %064x is higher than "+
+				"expected max of %064x", algorithm, hashNum, target)
 			return ruleError(ErrHighHash, str)
 		}
 	}
@@ -674,7 +675,7 @@ func (b *BlockChain) checkBlockHeaderContext(header *wire.BlockHeader, prevNode 
 	blockHeight := prevNode.height + 1
 
 	// Ensure chain matches up to predetermined checkpoints.
-	blockHash := header.BlockHash()
+	blockHash := header.BlockPoWHash()
 	if !b.verifyCheckpoint(blockHeight, &blockHash) {
 		str := fmt.Sprintf("block at height %d does not match "+
 			"checkpoint hash", blockHeight)

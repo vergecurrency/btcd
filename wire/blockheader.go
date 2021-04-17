@@ -53,7 +53,30 @@ func (h *BlockHeader) BlockHash() chainhash.Hash {
 	buf := bytes.NewBuffer(make([]byte, 0, MaxBlockHeaderPayload))
 	_ = writeBlockHeader(buf, 0, h)
 
-	return chainhash.ScryptHash(buf.Bytes())
+	return chainhash.ScryptHash(buf.Bytes()) // default to hash2scrypt
+}
+
+// BlockPoWHash computes the block identifier hash for the given block header.
+func (header *BlockHeader) BlockPoWHash() chainhash.Hash {
+	// Encode the header and double sha256 everything prior to the number of
+	// transactions.  Ignore the error returns since there is no way the
+	// encode could fail except being out of memory which would cause a
+	// run-time panic.
+	buf := bytes.NewBuffer(make([]byte, 0, MaxBlockHeaderPayload))
+	_ = writeBlockHeader(buf, 0, header)
+
+	switch header.BlockAlgorithm() {
+	case GROESTL:
+		return chainhash.GroestlHash(buf.Bytes())
+	case X17:
+		return chainhash.X17Hash(buf.Bytes())
+	case BLAKE:
+		return chainhash.BlakeHash(buf.Bytes())
+	case LYRA2RE:
+		return chainhash.Lyra2Rev2Hash(buf.Bytes())
+	}
+
+	return chainhash.ScryptHash(buf.Bytes()) // default to hash2scrypt
 }
 
 // BtcDecode decodes r using the bitcoin protocol encoding into the receiver.

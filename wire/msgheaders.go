@@ -118,6 +118,15 @@ func (msg *MsgHeaders) BtcEncode(w io.Writer, pver uint32, enc MessageEncoding) 
 		if err != nil {
 			return err
 		}
+
+		// The wire protocol encoding always includes a 0 for the number
+		// of signature on header messages.  This is really just an
+		// artifact of the way the original implementation serializes
+		// block headers, but it is required. (VERGE)
+		err = WriteVarInt(w, pver, 0)
+		if err != nil {
+			return err
+		}
 	}
 
 	return nil
